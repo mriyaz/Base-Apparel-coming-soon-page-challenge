@@ -1,0 +1,304 @@
+// Define colors and gradients
+$desaturated-red: hsl(0, 36%, 70%);
+$soft-red: hsl(0, 93%, 68%);
+$dark-grayish-red: hsl(0, 6%, 24%);
+$gradient-light: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+$gradient-dark: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+// Import Google Font
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+// Global styles
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+
+}
+
+.container {
+    background: $gradient-light;
+    margin: 5%;
+    border: 1px solid black;
+
+    .mobile-logo {
+
+        .logo-img {
+            padding: 5%;
+            width: 35%;
+        }
+    }
+
+    .hero-img {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .desktop-logo {
+        display: none;
+
+        .logo-img {
+            padding: 5%;
+            width: 35%;
+        }
+    }
+
+    .announcement {
+        padding: 5%;
+        text-align: center;
+        background-image: $gradient-light;
+
+        h1 {
+            letter-spacing: 0.5rem;
+            margin-top: 5%;
+            font-size: 2rem;
+            text-transform: uppercase;
+            color: $dark-grayish-red;
+
+            span {
+                color: $desaturated-red;
+                font-weight: 300;
+            }
+        }
+
+        p {
+            padding: 5% 0;
+            line-height: 1.2rem;
+            color: $desaturated-red
+        }
+
+        .sign-up {
+            // Base styles for the email input container
+            margin-bottom: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            border: 1px solid $desaturated-red;
+            overflow: hidden; // Ensures the button stays within the container border-radius
+            max-width: 100%;
+
+            // Styles for the email input field
+            input[type="email"] {
+                flex-grow: 1;
+                border: none;
+                padding: 10px 15px;
+                font-size: 16px;
+                outline: none; // Removes the default focus outline
+
+                &::placeholder {
+                    color: $desaturated-red;
+                }
+            }
+
+            .error-icon {
+                padding: 10px;
+                display: none;
+            }
+
+            // Styles for the submit button
+            .submit-btn {
+                box-shadow: 0 4px 6px rgba(240, 168, 168, 0.763);
+                background-color: $soft-red;
+                border: none;
+                border-radius: 20px;
+                width: 20%;
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: darken($dark-grayish-red, 10%);
+                }
+
+                &:focus {
+                    outline: none; // Removes the default focus outline
+                }
+            }
+
+            &.error .error-message {
+                display: block;
+            }
+
+            &.error {
+                border-width: 2px;
+            }
+
+            &.error .error-icon {
+                display: flex;
+            }
+
+        }
+
+        .error-message {
+            color: $soft-red;
+            text-align: left;
+            padding-left: 10px;
+            display: none;
+        }
+
+
+    }
+}
+
+/////media query for laptops and above size
+@media (min-width:768px) {
+    body {
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 16px;
+        background-color: black;
+
+    }
+
+    .container {
+        background: $gradient-light;
+        margin: 5%;
+        border: 1px solid black;
+
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        max-width: 90%;
+        // align-items: center;
+
+        .mobile-logo {
+            display: none;
+
+            .logo-img {
+                padding: 5%;
+                width: 35%;
+            }
+        }
+
+        .hero-img {
+            width: 60%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .column-container {
+
+            padding: 2% 0 0 10%;
+
+            .desktop-logo {
+                display: flex;
+
+                .logo-img {
+
+                    width: 30%;
+                }
+            }
+
+            .announcement {
+                padding: 0 5%;
+                text-align: left;
+                background-image: $gradient-light;
+
+                h1 {
+                    letter-spacing: 0.5rem;
+                    margin-top: 5%;
+                    font-size: 3.5rem;
+                    text-transform: uppercase;
+                    color: $dark-grayish-red;
+
+                    span {
+                        color: $desaturated-red;
+                        font-weight: 300;
+                    }
+                }
+
+                p {
+                    max-width: 60%;
+                    padding: 5% 0;
+                    line-height: 1.2rem;
+                    color: $desaturated-red
+                }
+
+                .sign-up {
+                    // Base styles for the email input container
+                    margin-bottom: 2%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 25px;
+                    border: 1px solid $desaturated-red;
+                    overflow: hidden; // Ensures the button stays within the container border-radius
+                    max-width: 60%;
+
+                    // Styles for the email input field
+                    input[type="email"] {
+                        flex-grow: 1;
+                        border: none;
+                        padding: 12px 15px;
+                        font-size: 16px;
+                        outline: none; // Removes the default focus outline
+
+
+                        &::placeholder {
+                            color: $desaturated-red;
+                        }
+                    }
+
+                    .error-icon {
+                        padding: 12px;
+                        display: none;
+                    }
+
+                    // Styles for the submit button
+                    .submit-btn {
+                        box-shadow: 0 4px 6px rgba(240, 168, 168, 0.763);
+                        background-color: $soft-red;
+                        border: none;
+                        border-radius: 20px;
+                        width: 20%;
+                        padding: 12px 20px;
+                        color: white;
+                        cursor: pointer;
+                        transition: background-color 0.3s;
+
+                        &:hover {
+                            background-color: darken($dark-grayish-red, 10%);
+                        }
+
+                        &:focus {
+                            outline: none; // Removes the default focus outline
+                        }
+                    }
+
+                    &.error .error-message {
+                        display: block;
+                    }
+
+                    &.error {
+                        border-width: 2px;
+                    }
+
+                    &.error .error-icon {
+                        display: flex;
+                    }
+                }
+
+                .error-message {
+                    color: $soft-red;
+                    padding-left: 10px;
+                    display: none;
+                }
+
+
+            }
+        }
+    }
+}
